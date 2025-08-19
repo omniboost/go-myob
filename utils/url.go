@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"encoding/json"
 	nativeurl "net/url"
 )
 
@@ -22,4 +23,8 @@ func (u *URL) UnmarshalText(p []byte) error {
 // MarshalText just calls String()
 func (u *URL) MarshalText() ([]byte, error) {
 	return []byte(u.String()), nil
+}
+
+func (u URL) MarshalJSON() ([]byte, error) {
+	return json.Marshal(u.URL.String())
 }
