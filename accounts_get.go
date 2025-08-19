@@ -155,6 +155,7 @@ func (r *AccountsGetRequest) All(ctx context.Context) (AccountsGetResponseBody, 
 		}
 
 		responseBody.Items = append(responseBody.Items, resp.Items...)
+		responseBody.Count = resp.Count
 
 		if resp.NextPageLink == nil {
 			break
