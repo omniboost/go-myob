@@ -58,3 +58,15 @@ type ForeignCurrency struct {
 	CurrencyName string    `json:"CurrencyName"`
 	URI          utils.URL `json:"URI"`
 }
+
+type Categories []Category
+
+type Category struct {
+	UID         string    `json:"UID"`
+	DisplayID   string    `json:"DisplayID"`
+	Name        string    `json:"Name"`
+	Description string    `json:"Description"`
+	IsActive    bool      `json:"IsActive"`
+	URI         utils.URL `json:"URI"`
+	RowVersion  string    `json:"RowVersion"`
+}
