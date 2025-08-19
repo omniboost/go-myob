@@ -70,3 +70,39 @@ type Category struct {
 	URI         utils.URL `json:"URI"`
 	RowVersion  string    `json:"RowVersion"`
 }
+
+type Jobs []Job
+
+type Job struct {
+	UID                string          `json:"UID"`
+	Number             string          `json:"Number"`
+	IsHeader           bool            `json:"IsHeader"`
+	Name               string          `json:"Name"`
+	Description        string          `json:"Description"`
+	ParentJob          *ParentJob      `json:"ParentJob"`
+	LinkedCustomer     *LinkedCustomer `json:"LinkedCustomer"`
+	PercentComplete    Number          `json:"PercentComplete"`
+	StartDate          *DateTime       `json:"StartDate"`
+	FinishDate         *DateTime       `json:"FinishDate"`
+	Contact            *string         `json:"Contact"`
+	Manager            *string         `json:"Manager"`
+	IsActive           bool            `json:"IsActive"`
+	TrackReimbursables bool            `json:"TrackReimbursables"`
+	LastModified       DateTime        `json:"LastModified"`
+	URI                utils.URL       `json:"URI"`
+	RowVersion         string          `json:"RowVersion"`
+}
+
+type ParentJob struct {
+	UID    string    `json:"UID"`
+	Number string    `json:"Number"`
+	Name   string    `json:"Name"`
+	URI    utils.URL `json:"URI"`
+}
+
+type LinkedCustomer struct {
+	UID       string    `json:"UID"`
+	Name      string    `json:"Name"`
+	DisplayID string    `json:"DisplayID"`
+	URI       utils.URL `json:"URI"`
+}
