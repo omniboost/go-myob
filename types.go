@@ -12,7 +12,7 @@ type Account struct {
 	Description        string           `json:"Description"`
 	ParentAccount      *ParentAccount   `json:"ParentAccount"`
 	IsActive           bool             `json:"IsActive"`
-	TaxCode            *TaxCode         `json:"TaxCode"`
+	TaxCode            *AccountTaxCode  `json:"TaxCode"`
 	Level              int              `json:"Level"`
 	OpeningBalance     Number           `json:"OpeningBalance"`
 	CurrentBalance     Number           `json:"CurrentBalance"`
@@ -32,7 +32,7 @@ type ParentAccount struct {
 	URI       string `json:"URI"`
 }
 
-type TaxCode struct {
+type AccountTaxCode struct {
 	UID  string `json:"UID"`
 	Code string `json:"Code"`
 	URI  string `json:"URI"`
@@ -169,4 +169,39 @@ type GeneralJournalLineTaxCode struct {
 	UID  string `json:"UID"`
 	Code string `json:"Code,omitempty"`
 	URI  string `json:"URI,omitempty,omitzero"`
+}
+
+type TaxCodes []TaxCode
+
+type TaxCode struct {
+	UID                       string                 `json:"UID"`
+	Code                      string                 `json:"Code"`
+	Description               string                 `json:"Description"`
+	Type                      string                 `json:"Type"`
+	Rate                      Number                 `json:"Rate"`
+	IsRateNegative            bool                   `json:"IsRateNegative"`
+	TaxCollectedAccount       *TaxCodeAccount        `json:"TaxCollectedAccount"`
+	TaxPaidAccount            *TaxCodeAccount        `json:"TaxPaidAccount"`
+	WithholdingCreditAccount  *TaxCodeAccount        `json:"WithholdingCreditAccount"`
+	WithholdingPayableAccount *TaxCodeAccount        `json:"WithholdingPayableAccount"`
+	ImportDutyPayableAccount  *TaxCodeAccount        `json:"ImportDutyPayableAccount"`
+	LinkedSupplier            *TaxCodeLinkedSupplier `json:"LinkedSupplier"`
+	LuxuryCarTaxThreshold     *Number                `json:"LuxuryCarTaxThreshold"`
+	LastModified              DateTime               `json:"LastModified"`
+	URI                       string                 `json:"URI"`
+	RowVersion                string                 `json:"RowVersion"`
+}
+
+type TaxCodeAccount struct {
+	UID       string `json:"UID"`
+	Name      string `json:"Name"`
+	DisplayID string `json:"DisplayID"`
+	URI       string `json:"URI"`
+}
+
+type TaxCodeLinkedSupplier struct {
+	UID       string `json:"UID"`
+	Name      string `json:"Name"`
+	DisplayID string `json:"DisplayID"`
+	URI       string `json:"URI"`
 }
