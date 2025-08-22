@@ -115,7 +115,3 @@ func (i *Number) UnmarshalJSON(data []byte) error {
 	*i = i2
 	return nil
 }
-
-func (i Number) MarshalJSON() ([]byte, error) {
-	return json.Marshal(int(i))
-}

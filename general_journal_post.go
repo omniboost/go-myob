@@ -91,11 +91,11 @@ func (r GeneralJournalPostRequest) NewRequestBody() GeneralJournalPostRequestBod
 type GeneralJournalPostRequestBody GeneralJournal
 
 func (r *GeneralJournalPostRequest) RequestBody() *GeneralJournalPostRequestBody {
-	return nil
+	return &r.requestBody
 }
 
 func (r *GeneralJournalPostRequest) RequestBodyInterface() interface{} {
-	return nil
+	return r.requestBody
 }
 
 func (r *GeneralJournalPostRequest) SetRequestBody(body GeneralJournalPostRequestBody) {
