@@ -105,6 +105,8 @@ type LinkedCustomer struct {
 	URI       string `json:"URI"`
 }
 
+type GeneralJournals []GeneralJournal
+
 type GeneralJournal struct {
 	UID                  string                         `json:"UID,omitempty"`
 	DisplayID            string                         `json:"DisplayID"`
