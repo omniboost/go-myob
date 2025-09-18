@@ -115,7 +115,7 @@ type GeneralJournal struct {
 	Memo                 string                         `json:"Memo"`
 	GSTReportingMethod   string                         `json:"GSTReportingMethod"`
 	IsYearEndAdjustment  bool                           `json:"IsYearEndAdjustment"`
-	Category             GeneralJournalCategory         `json:"Category"`
+	Category             *GeneralJournalCategory        `json:"Category,omitempty"`
 	Lines                []GeneralJournalLine           `json:"Lines"`
 	ForeignCurrency      *GeneralJournalForeignCurrency `json:"ForeignCurrency"`
 	URI                  string                         `json:"URI,omitempty,omitzero"`
